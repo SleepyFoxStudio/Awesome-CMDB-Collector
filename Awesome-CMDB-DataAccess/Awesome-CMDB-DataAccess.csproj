@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Awesome_CMDB_DataAccess</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="aliyun-net-sdk-core" Version="1.5.8" />
+    <PackageReference Include="aliyun-net-sdk-ecs" Version="4.19.10" />
+    <PackageReference Include="aliyun-net-sdk-ram" Version="3.1.1" />
+    <PackageReference Include="aliyun-net-sdk-sts" Version="3.0.4" />
+    <PackageReference Include="AWSSDK.Core" Version="3.3.107.40" />
+    <PackageReference Include="AWSSDK.EC2" Version="3.3.201.1" />
+    <PackageReference Include="AWSSDK.IdentityManagement" Version="3.3.106.34" />
+    <PackageReference Include="AWSSDK.Organizations" Version="3.3.109.4" />
+    <PackageReference Include="AWSSDK.Pricing" Version="3.3.100.222" />
+    <PackageReference Include="AWSSDK.RDS" Version="3.3.128.2" />
+    <PackageReference Include="AWSSDK.SecurityToken" Version="3.3.105.43" />
+    <PackageReference Include="IdentityModel" Version="4.3.1" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.7" />
+    <PackageReference Include="MySql.Data" Version="8.0.21" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Polly" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Awesome-CMDB-DataAccess-Models\Awesome-CMDB-DataAccess-Models.csproj" />
+  </ItemGroup>
+
+</Project>
