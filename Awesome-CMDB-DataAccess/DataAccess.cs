@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Awesome_CMDB_DataAccess_Models;
 using IdentityModel.Client;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Awesome_CMDB_DataAccess
 {
@@ -18,6 +18,12 @@ namespace Awesome_CMDB_DataAccess
         private string _accessToken;
         private DateTime _tokenExpiresDateTime = DateTime.MinValue;
         private readonly HttpClient _client;
+        private readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            WriteIndented = true,
+            Converters = { new JsonStringEnumConverter() }
+        };
 
         public DataAccess(string discoEndPoint, string clientId, string secret)
         {
@@ -28,9 +34,11 @@ namespace Awesome_CMDB_DataAccess
         }
 
 
-        public async Task GetAccountSummary()
+        public async Task<List<Account>> GetAccountSummary()
         {
-            var content = await CallGetApi("https://localhost:6001/accountSummary");
+            var jsonString = await CallGetApi("https://localhost:6001/accountSummary");
+            var accounts =  JsonSerializer.Deserialize<List<Account>>(jsonString, _serializerOptions);
+            return accounts;
         }
 
         private async Task<string> CallGetApi(string uri)

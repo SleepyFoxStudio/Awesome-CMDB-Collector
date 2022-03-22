@@ -2,8 +2,14 @@
 {
     public class Account
     {
-        public string DatacenterType { get; set; }
+        public DatacenterType DatacenterType { get; set; }
         public string AccountName { get; set; }
         public string AccountId { get; set; }
+    }
+
+    public enum DatacenterType
+    {
+        Unknown,
+        AWS
     }
 }

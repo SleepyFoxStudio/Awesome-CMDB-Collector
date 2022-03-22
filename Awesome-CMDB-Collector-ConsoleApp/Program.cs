@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Awesome_CMDB_DataAccess;
 using Awesome_CMDB_DataAccess.Providers;
+using ConsoleDump;
 using Figgle;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,8 +40,12 @@ namespace Awesome_CMDB_Collector_ConsoleApp
                 var serverGroups = await dataCenter.GetServerGroupsAsync();
 
                 var dataAccess = new DataAccess("https://localhost:5001", "mysuperclient", "myverysecret");
-                await dataAccess.GetAccountSummary();
-                await dataAccess.PostAccountServerGroups(serverGroups);
+                var accounts = await dataAccess.GetAccountSummary();
+                foreach (var account in accounts)
+                {
+                    account.Dump();
+                }
+                //await dataAccess.PostAccountServerGroups(serverGroups);
 
 
                 Console.WriteLine();
