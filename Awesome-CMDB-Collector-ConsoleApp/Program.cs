@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,12 +40,68 @@ namespace Awesome_CMDB_Collector_ConsoleApp
                 var dataCenter = new DummyDataCenter();
                 var serverGroups = await dataCenter.GetServerGroupsAsync();
 
-                var dataAccess = new DataAccess("https://localhost:5001", "mysuperclient", "myverysecret");
-                var accounts = await dataAccess.GetAccountSummary();
+                //var dataAccess = new DataAccess("https://localhost:5001", "mysuperclient", "myverysecret");
+                var client = new AwesomeClient("https://localhost:6001", new HttpClient());
+                //var accounts = await client.AccountsAllAsync(cancellationToken);
+                var accounts = new List<Account>
+                {
+                    new Account
+                    {
+                        AccountName = "account-foo",
+                        DatacenterType = DatacenterType._1,
+                        Id = "000000001",
+                        ServerGroups = new List<ServerGroup>
+                    {
+                        new ServerGroup
+                        {
+                            GroupId = "eu-west-1",
+                            GroupName = "eu-west-1",
+                            Region = "eu-west-1",
+                            Servers = new List<ServerDetails>
+                            {
+                                new ServerDetails
+                                {
+                                    Id = "i-00000001",
+                                    Cpu = 4,
+                                    Created = DateTimeOffset.Now,
+                                    Name = "test box",
+                                    Ram = 3
+                                }, new ServerDetails
+                                {
+                                    Id = "i-00000002",
+                                    Cpu = 2,
+                                    Created = DateTimeOffset.Now,
+                                    Name = "test box2",
+                                    Ram = 4
+                                }, new ServerDetails
+                                {
+                                    Id = "i-00000003",
+                                    Cpu = 2,
+                                    Created = DateTimeOffset.Now,
+                                    Name = "test box3",
+                                    Ram = 8
+                                }, new ServerDetails
+                                {
+                                    Id = "i-00000004",
+                                    Cpu = 4,
+                                    Created = DateTimeOffset.Now,
+                                    Name = "test box4",
+                                    Ram = 12,
+                                    Tags = new Dictionary<string, string>
+                                    {
+                                        {"Department", "CEAT"}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    }
+                };
+
                 foreach (var account in accounts)
                 {
                     account.Dump();
-                    await dataAccess.PostAccountServerGroups(account);
+                    await client.AccountsAsync(account, cancellationToken);
                 }
 
 

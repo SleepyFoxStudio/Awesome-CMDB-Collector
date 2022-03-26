@@ -6,7 +6,8 @@ namespace Awesome_CMDB_DataAccess_Models
     {
         public DatacenterType DatacenterType { get; set; }
         public string AccountName { get; set; }
-        public string AccountId { get; set; }
+        public string Id { get; set; }
+        public string UserAccountId { get; set; }
         public List<ServerGroup> ServerGroups { get; set; } = new List<ServerGroup>();
     }
 
