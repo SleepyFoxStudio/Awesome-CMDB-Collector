@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Awesome_CMDB_DataAccess</RootNamespace>
   </PropertyGroup>
 
@@ -12,32 +12,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="aliyun-net-sdk-core" Version="1.5.8" />
-    <PackageReference Include="aliyun-net-sdk-ecs" Version="4.19.10" />
+    <PackageReference Include="aliyun-net-sdk-core" Version="1.5.11" />
+    <PackageReference Include="aliyun-net-sdk-ecs" Version="4.24.12" />
     <PackageReference Include="aliyun-net-sdk-ram" Version="3.1.1" />
-    <PackageReference Include="aliyun-net-sdk-sts" Version="3.0.4" />
-    <PackageReference Include="AWSSDK.Core" Version="3.3.107.40" />
-    <PackageReference Include="AWSSDK.EC2" Version="3.3.201.1" />
-    <PackageReference Include="AWSSDK.IdentityManagement" Version="3.3.106.34" />
-    <PackageReference Include="AWSSDK.Organizations" Version="3.3.109.4" />
-    <PackageReference Include="AWSSDK.Pricing" Version="3.3.100.222" />
-    <PackageReference Include="AWSSDK.RDS" Version="3.3.128.2" />
-    <PackageReference Include="AWSSDK.SecurityToken" Version="3.3.105.43" />
-    <PackageReference Include="IdentityModel" Version="4.3.1" />
+    <PackageReference Include="aliyun-net-sdk-sts" Version="3.1.0" />
+    <PackageReference Include="AWSSDK.Core" Version="3.7.9.2" />
+    <PackageReference Include="AWSSDK.EC2" Version="3.7.62" />
+    <PackageReference Include="AWSSDK.IdentityManagement" Version="3.7.2.120" />
+    <PackageReference Include="AWSSDK.Organizations" Version="3.7.0.141" />
+    <PackageReference Include="AWSSDK.Pricing" Version="3.7.1.136" />
+    <PackageReference Include="AWSSDK.RDS" Version="3.7.10.18" />
+    <PackageReference Include="AWSSDK.SecurityToken" Version="3.7.1.132" />
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
-    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.0.0">
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="6.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.7" />
-    <PackageReference Include="MySql.Data" Version="8.0.21" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.0.5">
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.15.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Polly" Version="7.2.1" />
+    <PackageReference Include="Polly" Version="7.2.3" />
     <PackageReference Include="System.Text.Json" Version="6.0.2" />
   </ItemGroup>
 
