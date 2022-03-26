@@ -102,9 +102,9 @@ namespace Awesome_CMDB_DataAccess
             _client.SetBearerToken(_accessToken);
         }
 
-        public async Task PostAccountServerGroups(List<ServerGroup> serverGroups)
+        public async Task PostAccountServerGroups(Account account)
         {
-            var content = await CallPostApi("https://localhost:6001/account", serverGroups);
+            var content = await CallPostApi("https://localhost:6001/accountSummary", account);
         }
     }
 }

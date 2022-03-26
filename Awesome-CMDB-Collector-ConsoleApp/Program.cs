@@ -44,8 +44,8 @@ namespace Awesome_CMDB_Collector_ConsoleApp
                 foreach (var account in accounts)
                 {
                     account.Dump();
+                    await dataAccess.PostAccountServerGroups(account);
                 }
-                //await dataAccess.PostAccountServerGroups(serverGroups);
 
 
                 Console.WriteLine();
